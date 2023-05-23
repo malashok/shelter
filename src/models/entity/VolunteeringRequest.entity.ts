@@ -1,5 +1,6 @@
 import {BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 import {VolunteeringEntity} from "./Volunteering.entity";
+import {PetsEntity} from "./Pets.entity";
 
 @Entity({ name: 'volunteering_requests' })
 export class VolunteeringRequestEntity extends BaseEntity {
@@ -16,9 +17,11 @@ export class VolunteeringRequestEntity extends BaseEntity {
     @Column({ type: 'text', nullable: true })
     public email?: string;
 
-    @ManyToOne(() => VolunteeringEntity, (v)=>v.id)
-    @JoinColumn()
-    @Column({name: 'volunteering_id'})
-    public petId: VolunteeringEntity;
+    @Column({ name: 'volunteering_id' })
+    public volunteeringId: number; // Assuming the ID is a number
+
+    @ManyToOne(() => VolunteeringEntity, (v) => v.id)
+    @JoinColumn({ name: 'volunteering_id' })
+    public volunteering: PetsEntity; // Establishing the relationship with PetsEntity
 
 }

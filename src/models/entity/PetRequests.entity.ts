@@ -16,8 +16,10 @@ export class PetRequestsEntity extends BaseEntity {
     @Column({ type: 'text', nullable: true })
     public email?: string;
 
-    @ManyToOne(() => PetsEntity,(p) => p.id)
-    @JoinColumn()
     @Column({ name: 'pet_id' })
-    public petId: PetsEntity;
+    public petId: number; // Assuming the ID is a number
+
+    @ManyToOne(() => PetsEntity, (p) => p.id)
+    @JoinColumn({ name: 'pet_id' })
+    public pet: PetsEntity; // Establishing the relationship with PetsEntity
 }
