@@ -3,19 +3,19 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity({ name: 'pets' })
 export class PetsEntity extends BaseEntity {
 
-    @PrimaryGeneratedColumn()
-    private id: number;
+    @PrimaryGeneratedColumn('increment')
+    public id: number;
 
-    @Column({ type: 'varchar' })
+    @Column({ type: 'text' })
     public name: string;
 
     @Column({ type: 'smallint' })
     public age: number;
 
-    @Column({ type: 'varchar' })
+    @Column({ type: 'text' })
     public photo: string;
 
-    @Column({type: 'varchar'})
+    @Column({type: 'text'})
     public address: string;
 
     @Column({type: 'text'})

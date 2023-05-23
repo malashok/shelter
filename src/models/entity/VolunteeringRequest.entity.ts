@@ -4,19 +4,19 @@ import {VolunteeringEntity} from "./Volunteering.entity";
 @Entity({ name: 'volunteering_requests' })
 export class VolunteeringRequestEntity extends BaseEntity {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     public id: number;
 
-    @Column({ type: 'varchar' })
+    @Column({ type: 'text' })
     public name: string;
 
-    @Column({ type: 'varchar' })
+    @Column({ type: 'text' })
     public phone: string;
 
-    @Column({ type: 'varchar', nullable: true })
+    @Column({ type: 'text', nullable: true })
     public email?: string;
 
-    @ManyToOne(()=> VolunteeringEntity)
+    @ManyToOne(() => VolunteeringEntity, (v)=>v.id)
     @JoinColumn()
     @Column({name: 'volunteering_id'})
     public petId: VolunteeringEntity;

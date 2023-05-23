@@ -4,21 +4,20 @@ import {PetsEntity} from "./Pets.entity";
 @Entity({ name: 'pet_requests' })
 export class PetRequestsEntity extends BaseEntity {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     public id: number;
 
-    @Column({ type: 'varchar' })
+    @Column({ type: 'text' })
     public name: string;
 
-    @Column({ type: 'varchar' })
+    @Column({ type: 'text' })
     public phone: string;
 
-    @Column({ type: 'varchar', nullable: true })
+    @Column({ type: 'text', nullable: true })
     public email?: string;
 
-    @ManyToOne(()=> PetsEntity)
+    @ManyToOne(() => PetsEntity,(p) => p.id)
     @JoinColumn()
-    @Column({name: 'pet_id'})
+    @Column({ name: 'pet_id' })
     public petId: PetsEntity;
-
 }

@@ -3,16 +3,16 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity({ name: 'managers' })
 export class ManagersEntity extends BaseEntity {
 
-    @PrimaryGeneratedColumn()
-    private id: number;
+    @PrimaryGeneratedColumn('increment')
+    public id: number;
 
-    @Column({ type: 'varchar' })
+    @Column({ type: 'text' })
     public name: string;
 
-    @Column({ type: 'varchar' })
+    @Column({ type: 'text' })
     public login: string;
 
-    @Column({type: 'varchar'})
+    @Column({type: 'text'})
     public password: string;
 }
 
