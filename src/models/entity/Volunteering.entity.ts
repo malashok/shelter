@@ -6,7 +6,7 @@ export class VolunteeringEntity extends BaseEntity {
     @PrimaryGeneratedColumn()
     private id: number;
 
-    @Column({ type: 'string' })
+    @Column({ type: 'varchar' })
     public title: string;
 
     @Column({ type: 'date' })
@@ -15,10 +15,10 @@ export class VolunteeringEntity extends BaseEntity {
     @Column({ name: 'number_of_people', type: 'number' })
     public numberOfPeople: number;
 
-    @Column({type: 'string'})
+    @Column({type: 'varchar'})
     public address: string;
 
-    @Column({type: 'text'})
+    @Column({type: 'varchar'})
     public description: string;
 }
 

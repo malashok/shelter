@@ -15,7 +15,7 @@
   "dependencies": {
     "pg": "^8.11.0",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.3.16"
+    "typeorm": "==0.2.45"
   },
   "devDependencies": {
     "@types/node": "^20.2.3",

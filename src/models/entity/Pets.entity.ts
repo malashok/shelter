@@ -6,16 +6,16 @@ export class PetsEntity extends BaseEntity {
     @PrimaryGeneratedColumn()
     private id: number;
 
-    @Column({ type: 'string' })
+    @Column({ type: 'varchar' })
     public name: string;
 
     @Column({ type: 'smallint' })
     public age: number;
 
-    @Column({ type: 'string' })
+    @Column({ type: 'varchar' })
     public photo: string;
 
-    @Column({type: 'string'})
+    @Column({type: 'varchar'})
     public address: string;
 
     @Column({type: 'text'})
