@@ -21,6 +21,9 @@ export class PetsEntity extends BaseEntity {
     @Column({type: 'text'})
     public description: string;
 
+    @Column({type: 'text'})
+    public breed: string;
+
     @Column({type: 'boolean'})
     public isActive: boolean;
 }
