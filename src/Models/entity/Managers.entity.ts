@@ -1,4 +1,5 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {BaseEntity, BeforeInsert, Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
+import * as bcrypt from "bcrypt"
 
 @Entity({ name: 'managers' })
 export class ManagersEntity extends BaseEntity {
@@ -14,5 +15,10 @@ export class ManagersEntity extends BaseEntity {
 
     @Column({type: 'text'})
     public password: string;
+
+    @BeforeInsert()
+    hashPassword() {
+        this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
+    }
 }
 
