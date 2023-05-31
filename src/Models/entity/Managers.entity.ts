@@ -7,10 +7,10 @@ export class ManagersEntity extends BaseEntity {
     @PrimaryGeneratedColumn('increment')
     public id: number;
 
-    @Column({ type: 'text' })
+    @Column({type: 'text'})
     public name: string;
 
-    @Column({ type: 'text' })
+    @Column({type: 'text'})
     public login: string;
 
     @Column({type: 'text'})
@@ -21,4 +21,3 @@ export class ManagersEntity extends BaseEntity {
         this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
     }
 }
-
