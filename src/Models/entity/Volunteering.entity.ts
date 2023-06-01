@@ -9,7 +9,7 @@ export class VolunteeringEntity extends BaseEntity {
     @Column({ type: 'varchar' })
     public title: string;
 
-    @Column({ type: 'date' })
+    @Column({ type: 'timestamp' })
     public date: Date = new Date();
 
     @Column({ name: 'number_of_people', type: 'int' })
