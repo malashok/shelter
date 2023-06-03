@@ -19,8 +19,7 @@ export class UserController {
                 return res.status(401).send('Invalid login');
             }
 
-            //const match = await bcrypt.compare(data.password, manager.password);
-            const match = await ManagersEntity.findOne({password: data.password})
+            const match = await bcrypt.compare(data.password, manager.password);
             if (!match) {
                 return res.status(401).send('Invalid password');
             }
