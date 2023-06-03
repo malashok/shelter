@@ -14,5 +14,13 @@ export class VolunteeringService {
         console.log(createdEntity);
         return await createdEntity.save();
     }
+    public async updateVolunteering(id:number): Promise<VolunteeringEntity> {
+        const v = await VolunteeringEntity.findOne({id});
+        if (!v) {
+            throw new Error('Volunteering with this id isn`t exist');
+        }
+        v.numberOfPeople = v.numberOfPeople-1;
+        return await v.save();
+    }
 }
 

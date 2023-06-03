@@ -18,9 +18,8 @@ export class VolunteeringController {
         return await this.service.createVolunteering(volunteeringEntity);
     }
 
-    @Patch()
-    public async changeVolunteering(@Body() volunteeringEntity: VolunteeringDto): Promise<VolunteeringEntity> {
-        console.log(volunteeringEntity);
-        return await this.service.createVolunteering(volunteeringEntity);
+    @Patch(':id')
+    public async updateVolunteering(@Param('id') id: number): Promise<VolunteeringEntity> {
+        return await this.service.updateVolunteering(id);
     }
 }

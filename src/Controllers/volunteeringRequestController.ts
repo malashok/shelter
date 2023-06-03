@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Post, ValidationPipe} from "@nestjs/common";
+import {Body, Controller, Get, Param, Patch, Post, ValidationPipe} from "@nestjs/common";
 import {VolunteeringRequestEntity} from "../Models/entity/VolunteeringRequest.entity";
 import {VolunteeringRequestService} from "../Services/VolunteeringRequestService";
 import {VolunteeringRequestDto} from "../Models/Dto/VolunteeringRequestDto";
