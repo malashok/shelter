@@ -14,9 +14,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.0",
-    "expess": "^0.0.1-security",
-    "jsonwebtoken": "^9.0.0",
     "@nestjs/common": "8.2.6",
     "@nestjs/config": "2.0.1",
     "@nestjs/core": "8.2.6",
@@ -24,15 +21,21 @@
     "@nestjs/swagger": "5.2.1",
     "@nestjs/typeorm": "8.0.3",
     "axios": "0.26.1",
+    "bcrypt": "^5.1.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
+    "cors": "^2.8.5",
+    "expess": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.0",
     "nestjs-typeorm-paginate": "3.0.0",
     "pg": "8.7.3",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.5.2",
     "typeorm": "==0.2.45"
-
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "^20.2.3",
