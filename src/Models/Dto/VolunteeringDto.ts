@@ -1,8 +1,7 @@
-import {Column, PrimaryGeneratedColumn} from "typeorm";
 
 export class VolunteeringDto{
      title: string;
-     date: Date = new Date();
+     date: Date;
      numberOfPeople: number;
      address: string;
      description: string;

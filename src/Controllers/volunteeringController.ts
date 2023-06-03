@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Post, ValidationPipe} from "@nestjs/common";
+import {Body, Controller, Get, Param, Patch, Post, ValidationPipe} from "@nestjs/common";
 import {VolunteeringService} from "../Services/volunteeringService";
 import {VolunteeringEntity} from "../Models/entity/Volunteering.entity";
 import {VolunteeringDto} from "../Models/Dto/VolunteeringDto";
@@ -14,6 +14,12 @@ export class VolunteeringController {
 
     @Post()
     public async createVolunteering(@Body() volunteeringEntity: VolunteeringDto): Promise<VolunteeringEntity> {
+        console.log(volunteeringEntity);
+        return await this.service.createVolunteering(volunteeringEntity);
+    }
+
+    @Patch()
+    public async changeVolunteering(@Body() volunteeringEntity: VolunteeringDto): Promise<VolunteeringEntity> {
         console.log(volunteeringEntity);
         return await this.service.createVolunteering(volunteeringEntity);
     }

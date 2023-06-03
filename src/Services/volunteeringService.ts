@@ -10,12 +10,8 @@ export class VolunteeringService {
         return res;
     }
     public async createVolunteering(volunteeringEntity: VolunteeringDto): Promise<VolunteeringEntity> {
-        const createdEntity: VolunteeringEntity = VolunteeringEntity.create();
-        createdEntity.title = volunteeringEntity.title;
-        createdEntity.address = volunteeringEntity.address;
-        createdEntity.description = volunteeringEntity.description;
-        createdEntity.numberOfPeople = volunteeringEntity.numberOfPeople;
-        createdEntity.date = volunteeringEntity.date;
+        const createdEntity: VolunteeringEntity = VolunteeringEntity.create(volunteeringEntity);
+        console.log(createdEntity);
         return await createdEntity.save();
     }
 }
