@@ -1,6 +1,8 @@
-import {Controller, Get, Param} from "@nestjs/common";
+import {Body, Controller, Get, Param, Post} from "@nestjs/common";
 import {PetsEntity} from "../Models/entity/Pets.entity";
 import {PetsService} from "../Services/petsService";
+import {PetRequestsEntity} from "../Models/entity/PetRequests.entity";
+import {PetRequestDto} from "../Models/Dto/PetRequestDto";
 
 @Controller('pets')
 export class PetsController {
@@ -19,19 +21,9 @@ export class PetsController {
         return await this.service.getAll();
     }
 
-    // @Get(':code')
-    // public async getCourse(@Param('code') code: number): Promise<unknown> {
-    //     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    //     require('https').globalAgent.options.rejectUnauthorized = false;
-    //     return this.service.getCourse(code).catch((err) => {
-    //         const errorCode = err?.response?.status;
-    //         if (errorCode == 404) {
-    //             throw new NotFoundException('Not Found');
-    //         } else if (errorCode == 400) {
-    //             throw new BadRequestException('Bad Request');
-    //         } else if (errorCode == 500) {
-    //             throw new InternalServerErrorException('Internal Server Error');
-    //         }
-    //     });
-    // }
+    @Post('/request')
+    public async postPetRequest(@Body() petRequestDto:PetRequestDto): Promise<PetRequestsEntity>{
+        return this.service.postPetRequest(petRequestDto);
+    }
+
 }

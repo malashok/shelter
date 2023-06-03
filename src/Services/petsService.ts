@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 import {PetsEntity} from "../Models/entity/Pets.entity";
+import {PetRequestDto} from "../Models/Dto/PetRequestDto";
+import {PetRequestsEntity} from "../Models/entity/PetRequests.entity";
 
 @Injectable()
 export class PetsService {
@@ -9,12 +11,11 @@ export class PetsService {
         return res;
     }
 
-    // public async postCourseFeedback(code: number, dto: Dto): Promise<CourseFeedback> {
-    //     const feedback: CourseFeedback = CourseFeedback.create();
-    //     feedback.courseId = code;
-    //     feedback.rating = dto.rating;
-    //     feedback.text = dto.text;
-    //     return await feedback.save();
-    // }
+    public async postPetRequest(petRequestDto: PetRequestDto): Promise<PetRequestsEntity>{
+        const petRequest: PetRequestsEntity = PetRequestsEntity.create(petRequestDto);
+        console.log(petRequest);
+        return await petRequest.save();
+    }
+
 }
 
