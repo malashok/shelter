@@ -20,7 +20,9 @@ export class VolunteeringRequestEntity extends BaseEntity {
     @Column({ name: 'volunteering_id' })
     public volunteeringId: number; // Assuming the ID is a number
 
-    @ManyToOne(() => VolunteeringEntity, (v) => v.id)
+    @ManyToOne(() => VolunteeringEntity, (v) => v.id,{
+        onDelete: 'CASCADE'
+    })
     @JoinColumn({ name: 'volunteering_id' })
     public volunteering: PetsEntity; // Establishing the relationship with PetsEntity
 

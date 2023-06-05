@@ -19,7 +19,9 @@ export class PetRequestsEntity extends BaseEntity {
     @Column({ name: 'pet_id' })
     public petId: number; // Assuming the ID is a number
 
-    @ManyToOne(() => PetsEntity, (p) => p.id)
+    @ManyToOne(() => PetsEntity, (p) => p.id,  {
+        onDelete: 'CASCADE'
+    })
     @JoinColumn({ name: 'pet_id' })
     public pet: PetsEntity; // Establishing the relationship with PetsEntity
 }
