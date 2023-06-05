@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Patch, Post, ValidationPipe} from "@nestjs/common";
+import {Body, Controller, Delete, Get, Param, Patch, Post, ValidationPipe} from "@nestjs/common";
 import {VolunteeringService} from "../Services/volunteeringService";
 import {VolunteeringEntity} from "../Models/entity/Volunteering.entity";
 import {VolunteeringDto} from "../Models/Dto/VolunteeringDto";
@@ -19,7 +19,15 @@ export class VolunteeringController {
     }
 
     @Patch(':id')
-    public async updateVolunteering(@Param('id') id: number): Promise<VolunteeringEntity> {
-        return await this.service.updateVolunteering(id);
+    public async updateVolunteeringPeople(@Param('id') id: number): Promise<VolunteeringEntity> {
+        return await this.service.updateVolunteeringPeople(id);
+    }
+    @Patch('change/:id')
+    public async changeVolunteering(@Param('id') id: number, @Body() volunteeringEntity: VolunteeringDto): Promise<VolunteeringEntity> {
+        return await this.service.changeVolunteering(id, volunteeringEntity);
+    }
+    @Delete(':id')
+    public async delete(@Param('id') id:number): Promise<VolunteeringEntity> {
+        return await this.service.delete(id);
     }
 }
