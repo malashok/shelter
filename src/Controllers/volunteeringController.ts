@@ -2,6 +2,7 @@ import {Body, Controller, Delete, Get, Param, Patch, Post, ValidationPipe} from 
 import {VolunteeringService} from "../Services/volunteeringService";
 import {VolunteeringEntity} from "../Models/entity/Volunteering.entity";
 import {VolunteeringDto} from "../Models/Dto/VolunteeringDto";
+import {PetsEntity} from "../Models/entity/Pets.entity";
 
 @Controller('volunteering')
 export class VolunteeringController {
@@ -10,6 +11,11 @@ export class VolunteeringController {
     @Get()
     public async getAll(): Promise<VolunteeringEntity[]> {
         return await this.service.getAll();
+    }
+
+    @Get(':id')
+    public async getPet(@Param('id') id:number): Promise<VolunteeringEntity | undefined> {
+        return await this.service.getById(id);
     }
 
     @Post()

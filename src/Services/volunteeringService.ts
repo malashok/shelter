@@ -2,12 +2,16 @@ import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 import {VolunteeringEntity} from "../Models/entity/Volunteering.entity";
 import {VolunteeringDto} from "../Models/Dto/VolunteeringDto";
+import {PetsEntity} from "../Models/entity/Pets.entity";
 
 @Injectable()
 export class VolunteeringService {
     public async getAll(): Promise<VolunteeringEntity[]> {
         const res: VolunteeringEntity[] = await VolunteeringEntity.find();
         return res;
+    }
+    public async getById(id:number): Promise<VolunteeringEntity | undefined> {
+        return await VolunteeringEntity.findOne({where: {id: id}});
     }
     public async createVolunteering(volunteeringEntity: VolunteeringDto): Promise<VolunteeringEntity> {
         const createdEntity: VolunteeringEntity = VolunteeringEntity.create(volunteeringEntity);
